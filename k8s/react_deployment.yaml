@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: react-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      component: react-app
+  template:
+    metadata:
+      labels:
+        component: react-app
+    spec:
+      containers:
+        - name: react-app
+          image: ginnycosine/cloud-final-react
+          ports:
+            - containerPort: 3000
