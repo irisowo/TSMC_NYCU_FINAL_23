@@ -109,7 +109,7 @@ class GoogleCrawler():
         return data_array
     def jsonarray_toexcel(self,data_array):
         df = pd.DataFrame(data=data_array)
-        df.to_excel('result.xlsx' , index=False)
+        df.to_csv('result.csv' , index=False)
         return
     
 if __name__ == "__main__":
