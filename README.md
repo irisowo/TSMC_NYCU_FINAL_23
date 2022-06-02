@@ -1,22 +1,8 @@
 # TSMC NYCU Final Project
 ## Frontend
-React.js
-- Install
-    ```
-    yarn install
-    ```
-- Run
-    ```
-    yarn start
-    ```
+- React.js
+- [docker image](https://hub.docker.com/repository/docker/ginnycosine/cloud-final-react)
 
 ## Backend
-Python flask
-- Install
-    ```
-    pip install -r ./requirements.txt
-    ```
-- Run
-    ```
-    python server.py
-    ```
+- Python flask
+- [docker image](https://hub.docker.com/repository/docker/ginnycosine/cloud-final-flask)
