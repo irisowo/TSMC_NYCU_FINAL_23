@@ -1,22 +1,22 @@
 # TSMC NYCU Final Project
 ## Frontend
-- React.js
+React.js
 - Install
     ```
-    $ yarn install
+    yarn install
     ```
 - Run
     ```
-    $ yarn start
+    yarn start
     ```
 
 ## Backend
-- Python flask
+Python flask
 - Install
     ```
-    $ pip install -r ./requirements.txt
+    pip install -r ./requirements.txt
     ```
 - Run
     ```
-    $ python server.py
+    python server.py
     ```
