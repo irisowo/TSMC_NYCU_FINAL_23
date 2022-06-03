@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: crawler-deployment
+  labels:
+    app: crawler
+  namespace: test
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: crawler
+  template:
+    metadata:
+      labels:
+        app: crawler
+    spec:
+      containers:
+      - name: crawler
+        image: irisowo/crawler:v1
+        ports:
+        - containerPort: 80
+          name: crawler
+        resources:
+          requests:
+            cpu: 1
+            memory: 1Gi
+          limits:
+            cpu: 1
+            memory: 1Gi
+        volumeMounts:
+          - name: history-dir
+            mountPath: /var/log/history
+      volumes:
+      - name: history-dir
+        persistentVolumeClaim:
+          claimName: pvc-demo
