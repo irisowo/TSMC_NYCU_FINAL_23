@@ -10,17 +10,15 @@ spec:
   rules:
     - http:
         paths:
-          - path: /?(.*)
-            pathType: Prefix
+          - path: /
             backend:
               service:
                 name: react-app-service
                 port:
                   number: 3000
-          - path: /api/?(.*)
-            pathType: Prefix
+          - path: /
             backend:
               service:
-                name: flask-app--service
+                name: flask-app-service
                 port:
                   number: 9090
