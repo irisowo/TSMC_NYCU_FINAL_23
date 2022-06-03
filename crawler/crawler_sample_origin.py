@@ -8,6 +8,7 @@ import nltk
 from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize
 from datetime import datetime
+from pytrends.request import TrendReq
 
 nltk.download('punkt')
 nltk.download('stopwords')
@@ -111,23 +112,17 @@ class GoogleCrawler():
             }
             data_array.append(json_data)
         return data_array
-    def jsonarray_toexcel(self,data_array,path):
+    def jsonarray_tocsv(self,data_array,path):
         df = pd.DataFrame(data=data_array)
-<<<<<<< HEAD:crawler/crawler_sample.py
-        df.to_csv('result.csv' , index=False)
-=======
-        now = datetime.now()
-        current_time = now.strftime("%H:%M:%S")
-        filename = path + current_time + ".xlsx"
-        print("save result as "+filename)
+        filename = path + "result.csv"
+        print("save result as " + filename)
         try:
             print("Save to pvc")
-            df.to_excel(filename , index=False)
+            df.to_csv(filename , index=False)
         except:
             print("Save Error, Change")
             print("Save to Root")
-            df.to_excel('result.xlsx' , index=False)
->>>>>>> upstream/main:crawler_sample.py
+            df.to_csv('result.csv' , index=False)
         return
     
 if __name__ == "__main__":
@@ -146,5 +141,22 @@ if __name__ == "__main__":
     whitelist = ['ASML' , 'Intel']
     end_result = crawler.get_wordcount_json(whitelist , result_wordcount)
     print(end_result)
-    crawler.jsonarray_toexcel(end_result,path )
-    print('Excel is OK')
+    crawler.jsonarray_tocsv(end_result, path)
+    
+    # self-define crawler
+    keywords = ['TSMC', '應用材料', 'ASML', 'SUMCO']
+    pytrend = TrendReq(hl='zh-TW')
+    pytrend.build_payload(kw_list=keywords, cat=0, timeframe='today 12-m', geo='TW', gprop='')
+    Timedf = pytrend.interest_over_time()
+    Timedf = Timedf.iloc[: , :-1]
+    filename = path + "data.csv"
+   
+    try:
+        print("Save to pvc")
+        Timedf.to_csv(filename , index=False)
+    except:
+        print("Save Error, Change")
+        print("Save to Root")
+        Timedf.to_csv("data.csv")
+
+    print('CSV is OK')

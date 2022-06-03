@@ -1,6 +1,9 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 import csv
+import uuid
+
+instance_id = uuid.uuid4().hex
 app = Flask(__name__)
 
 def getCsvDataAll():
@@ -34,6 +37,10 @@ def getCompany():
     company = request.args.get('company')
     data = getCsvData(company)
     return jsonify(data)
+
+@app.route("/")
+def get_instance_id():
+    return f"Instance ID: {instance_id}"
 
 if __name__ == '__main__':
     CORS(app, resources={r"/*": {"origins": ["*"]}})
