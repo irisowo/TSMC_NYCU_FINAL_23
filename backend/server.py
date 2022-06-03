@@ -6,6 +6,13 @@ import uuid
 instance_id = uuid.uuid4().hex
 app = Flask(__name__)
 
+def getResponse(data):
+    response = jsonify(data)
+    response.headers.add('Access-Control-Allow-Origin', '*')
+    response.headers.add('Access-Control-Allow-Methods', '*')
+    response.headers.add('Access-Control-Allow-Private-Network', 'true')
+    return response
+
 def getCsvDataAll():
     data = { 'time': [], 'data': { 'tsmc': [],'am': [],'asml': [],'sumco': [] } }
     with open("data.csv", newline='') as csvfile:
@@ -30,19 +37,19 @@ def getCsvData(company):
 @app.route("/getAll", methods=['GET'])
 def getAll():
     data = getCsvDataAll()
-    return jsonify(data)
+    return getResponse(data)
 
 @app.route("/getCompany", methods=['GET'])
 def getCompany():
     company = request.args.get('company')
     data = getCsvData(company)
-    return jsonify(data)
+    return getResponse(data)
 
 @app.route("/")
 def get_instance_id():
     return f"Instance ID: {instance_id}"
 
 if __name__ == '__main__':
-    CORS(app, resources={r"/*": {"origins": ["*"]}})
+    # CORS(app, resources={r"/*": {"origins": ["*"]}})
     app.debug = True
     app.run(host='0.0.0.0', debug=True, port=9090)

@@ -1,24 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: react-flask-app
+  name: react-app
 spec:
   replicas: 1
   selector:
     matchLabels:
-      component: react-flask-app
+      component: react-app
   template:
     metadata:
       labels:
-        component: react-flask-app
+        component: react-app
     spec:
       containers:
-        - name: react-app-container
-          image: irisowo/frontend:v1
+        - name: react-app
+          image: ginnycosine/react:v1
           ports:
             - containerPort: 3000
-        - name: flask-app-container
-          image: irisowo/flask:v2 # version with app(host'0.0.0.0')
-          ports:
-            - containerPort: 9090
-              protocol: TCPs

@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: flask-app-container
-          image: ginnycosine/flask
+          image: ginnycosine/flask:v5
           ports:
             - containerPort: 9090
               protocol: TCP
