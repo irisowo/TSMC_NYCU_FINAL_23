@@ -3,9 +3,11 @@ kind: Service
 metadata:
   name: react-app-service
 spec:
-  type: ClusterIP
+  type: LoadBalancer
   selector:
     component: react-app
   ports:
-    - port: 3000
+    - name: http
+      port: 3000
+      protocol: TCP
       targetPort: 3000
