@@ -36,6 +36,6 @@ def getCompany():
     return jsonify(data)
 
 if __name__ == '__main__':
-    CORS(app, resources={r"/*": {"origins": ["http://localhost:3000"]}})
+    CORS(app, resources={r"/*": {"origins": ["*"]}})
     app.debug = True
-    app.run(port=9090)
+    app.run(host='0.0.0.0', debug=True, port=9090)
