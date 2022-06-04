@@ -1,7 +1,7 @@
-apiVersion: apps/v1
-kind: Deployment
+apiVersion: v1
+kind: Pod
 metadata:
-  name: crawler-deployment
+  name: crawler-pod
   labels:
     app: crawler
   namespace: default
@@ -14,7 +14,7 @@ spec:
       name: crawler
     volumeMounts:
       - name: history-dir
-        mountPath: /sample_crawler/hostory
+        mountPath: /sample_crawler/history
   volumes:
   - name: history-dir
     persistentVolumeClaim:
