@@ -8,7 +8,7 @@ metadata:
 spec:
   containers:
   - name: crawler
-    image: irisowo/cron:30min
+    image: irisowo/cron:1day
     ports:
     - containerPort: 4000
       name: crawler

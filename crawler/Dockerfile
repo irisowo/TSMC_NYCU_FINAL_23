@@ -1,7 +1,8 @@
+# irisowo/crawler:v1
 FROM python:3.6.15-slim
-COPY googletrend.py /sample_crawler/googletrend.py
 WORKDIR /sample_crawler
-RUN pip install pandas
-RUN pip install pytrends
-CMD ["python","googletrend.py"]
-# CMD ["python","crawler_sample.py"]
+COPY . .
+RUN pip install -r ./requirements.txt
+RUN python -m nltk.downloader punkt
+RUN python -m nltk.downloader stopwords
+CMD ["python","crawler_sample_and_trend.py"]

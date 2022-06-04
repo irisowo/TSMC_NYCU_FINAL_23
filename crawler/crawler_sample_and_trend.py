@@ -1,5 +1,4 @@
 ﻿import requests
-import urllib
 import pandas as pd
 from requests_html import HTML
 from requests_html import HTMLSession
@@ -7,12 +6,10 @@ from bs4 import BeautifulSoup
 import nltk
 from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize
-from datetime import datetime
 from pytrends.request import TrendReq
 
-nltk.download('punkt')
-nltk.download('stopwords')
-
+# nltk.download('popular')
+path = '/sample_crawler/history/' 
 
 class GoogleCrawler():
     
@@ -114,7 +111,7 @@ class GoogleCrawler():
         return data_array
     def jsonarray_tocsv(self,data_array,path):
         df = pd.DataFrame(data=data_array)
-        filename = path + "result.csv"
+        filename = path + "crawler_result.csv"
         print("save result as " + filename)
         try:
             print("Save to pvc")
@@ -122,12 +119,11 @@ class GoogleCrawler():
         except:
             print("Save Error, Change")
             print("Save to Root")
-            df.to_csv('result.csv' , index=False)
+            df.to_csv("crawler_result.csv" , index=False)
         return
     
 if __name__ == "__main__":
     query = "TSMC ASML"
-    path = '/var/log/history/' 
     crawler = GoogleCrawler()
     results = crawler.google_search(query , 'qdr:w' , '10')
     print(results[:3])
@@ -149,7 +145,7 @@ if __name__ == "__main__":
     pytrend.build_payload(kw_list=keywords, cat=0, timeframe='today 12-m', geo='TW', gprop='')
     Timedf = pytrend.interest_over_time()
     Timedf = Timedf.iloc[: , :-1]
-    filename = path + "data.csv"
+    filename = path + "crawler_data.csv"
    
     try:
         print("Save to pvc")
@@ -157,6 +153,6 @@ if __name__ == "__main__":
     except:
         print("Save Error, Change")
         print("Save to Root")
-        Timedf.to_csv("data.csv")
+        Timedf.to_csv("crawler_data.csv")
 
     print('CSV is OK')

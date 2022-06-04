@@ -14,7 +14,7 @@ spec:
             image: irisowo/crawler:v1
             volumeMounts:
             - name: history-dir
-              mountPath: /var/log/history
+              mountPath: /sample_crawler/history
           restartPolicy: OnFailure
           volumes:
           - name: history-dir
