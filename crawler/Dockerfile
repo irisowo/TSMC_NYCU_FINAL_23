@@ -1,6 +1,7 @@
 FROM python:3.6.15-slim
-COPY . /sample_crawler
+COPY googletrend.py /sample_crawler/googletrend.py
 WORKDIR /sample_crawler
-RUN pip install -r ./requirements.txt
-CMD ["python","crawler_sample.py"]
+RUN pip install pandas
+RUN pip install pytrends
 CMD ["python","googletrend.py"]
+# CMD ["python","crawler_sample.py"]
