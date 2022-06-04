@@ -1,3 +1,5 @@
+## TSMC_NYCU_SAMPLE 期末專題，範例程式碼 
+
 ## 修改
 1. 將 nltk.download()移至 Dockerfile
 2. 新增程式碼 : 爬取 google trend => crawler_sample_and_trend.py
@@ -5,7 +7,6 @@
 
 ---
 
-# TSMC_NYCU_SAMPLE 期末專題，範例程式碼
 ## 程式使用情境
 1. 呼叫Google網頁伺服器，將顯示出來的 URL 抓出來。 (支援換頁及限縮搜尋時間)   
 2. 對我們要的URL，進行萃取，取得文字內容
