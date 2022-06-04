@@ -4,7 +4,7 @@ metadata:
   name: crawler-deployment
   labels:
     app: crawler
-  namespace: test
+  namespace: default
 spec:
   replicas: 1
   selector:
@@ -17,17 +17,10 @@ spec:
     spec:
       containers:
       - name: crawler
-        image: irisowo/crawler:v1
+        image: irisowo/crawler:v2
         ports:
         - containerPort: 80
           name: crawler
-        resources:
-          requests:
-            cpu: 1
-            memory: 1Gi
-          limits:
-            cpu: 1
-            memory: 1Gi
         volumeMounts:
           - name: history-dir
             mountPath: /var/log/history

@@ -2,7 +2,7 @@ apiVersion: batch/v1
 kind: CronJob
 metadata:
   namespace: default
-  name: save-result
+  name: cronjob-crawler
 spec:
   schedule: "*/1 * * * *"
   jobTemplate:
