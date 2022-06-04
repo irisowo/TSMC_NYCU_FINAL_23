@@ -11,3 +11,6 @@
 
 ## Webpage
 - [Link](http://34.81.219.181:3000/trend)
+
+## Structure
+![](https://i.imgur.com/rImQz4E.png)
