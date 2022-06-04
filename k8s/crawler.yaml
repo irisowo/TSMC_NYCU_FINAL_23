@@ -6,25 +6,16 @@ metadata:
     app: crawler
   namespace: default
 spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      app: crawler
-  template:
-    metadata:
-      labels:
-        app: crawler
-    spec:
-      containers:
-      - name: crawler
-        image: irisowo/crawler:v2
-        ports:
-        - containerPort: 80
-          name: crawler
-        volumeMounts:
-          - name: history-dir
-            mountPath: /var/log/history
-      volumes:
+  containers:
+  - name: crawler
+    image: irisowo/cron:30min
+    ports:
+    - containerPort: 4000
+      name: crawler
+    volumeMounts:
       - name: history-dir
-        persistentVolumeClaim:
-          claimName: pvc-demo
+        mountPath: /sample_crawler/hostory
+  volumes:
+  - name: history-dir
+    persistentVolumeClaim:
+      claimName: pvc-demo
