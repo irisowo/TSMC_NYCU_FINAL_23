@@ -1,8 +1,10 @@
 # TSMC NYCU Final Project
 ## Frontend
 - React.js
-- [docker image](https://hub.docker.com/repository/docker/irisowo/frontend)
+- docker image
+    - `ginnycosine/react:v1`
 
 ## Backend
 - Python flask
-- [docker image](https://hub.docker.com/repository/docker/ginnycosine/cloud-final-flask)
+- docker image
+    - `ginnycosine/flask:v5`
