@@ -65,7 +65,7 @@ class Trend extends Component {
     this.company =  this.props.all ? 'all' : this.props.match.params.company;
     const params = this.props.all ?
       'getAll' : `getCompany?company=${this.props.match.params.company}`;
-    this.api = `http://localhost:9090/${params}`
+    this.api = `http://${window.location.hostname}/api/${params}`;
     this.handleClickInfo = this.handleClickInfo.bind(this);
     this.getData = this.getData.bind(this);
   }
