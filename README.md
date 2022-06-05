@@ -13,4 +13,4 @@
 - [Link](http://34.81.219.181:3000/trend)
 
 ## Structure
-![](https://i.imgur.com/jvvY6II.png)
+![](https://i.imgur.com/zuEhSKb.png)
