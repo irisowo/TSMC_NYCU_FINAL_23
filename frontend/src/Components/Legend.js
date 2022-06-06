@@ -42,9 +42,9 @@ const Legend = ({ ...props }) => {
         <Label>TSMC</Label>
         <Square color="player_" />
         <Label>ASML</Label>
-        <Square color="rival" />
-        <Label>應用材料</Label>
         <Square color="rival_" />
+        <Label>應用材料</Label>
+        <Square color="rival" />
         <Label>SUMCO</Label>
       </Wrapper>
     </Container>
