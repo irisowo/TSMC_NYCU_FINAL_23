@@ -1,0 +1,61 @@
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: mypvc
+spec:
+  storageClassName: "mynfs"
+  resources:
+    requests:
+      storage: 10Gi
+  accessModes:
+    - ReadWriteMany
+
+---
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nfs-pod
+  labels:
+    app: crawler
+  namespace: default
+spec:
+  containers:
+  - name: crawler
+    image: irisowo/cron:1day
+    ports:
+    - containerPort: 4000
+      name: crawler
+    volumeMounts:
+      - name: history-dir
+        mountPath: /sample_crawler/history
+  volumes:
+  - name: history-dir
+    persistentVolumeClaim:
+      claimName: mypvc
+
+---
+
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  namespace: default
+  name: cronjob-crawler
+spec:
+  schedule: "*/10 * * * *"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+          - name: write-file
+            image: irisowo/crawler:v1
+            volumeMounts:
+            - name: history-dir
+              mountPath: /sample_crawler/history
+          restartPolicy: OnFailure
+          volumes:
+          - name: history-dir
+            persistentVolumeClaim:
+              claimName: mypvc

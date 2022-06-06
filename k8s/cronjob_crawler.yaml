@@ -9,6 +9,7 @@ spec:
     spec:
       template:
         spec:
+          nodeName: gk3-project23-default-pool-c96d0be0-h79s
           containers:
           - name: write-file
             image: irisowo/crawler:v1
