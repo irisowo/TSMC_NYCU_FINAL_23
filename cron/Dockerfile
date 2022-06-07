@@ -4,6 +4,8 @@ WORKDIR /sample_crawler
 
 RUN pip3 install pandas
 RUN pip3 install pytrends
+RUN pip3 install pytest
+RUN pip3 install pytest-cov
 
 COPY crontab /etc/cron.d/crontab
 RUN chmod 0644 /etc/cron.d/crontab
