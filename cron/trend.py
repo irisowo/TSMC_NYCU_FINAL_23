@@ -21,11 +21,9 @@ class GoogleCrawler():
             print("Save to pvc")
             Timedf.to_csv(filename , index=False)
         except:
-            print("Save Error, Change")
-            print("Save to Root")
-            Timedf.to_csv("data.csv")
-        print('CSV is OK')
+            print("Save Error")
 
+        print('CSV is OK')
         return Timedf
 
 
