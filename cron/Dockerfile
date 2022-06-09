@@ -14,5 +14,6 @@ COPY . .
 
 RUN echo $PYTHONPATH
 EXPOSE 4000
+
 # run crond as main process of container
 CMD ["cron", "-f"]
