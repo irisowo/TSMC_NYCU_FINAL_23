@@ -1,0 +1,19 @@
+name: Tests
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'cron/**.py'
+ 
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container: irisowo/cron:1day_test
+ 
+    steps:
+ 
+    - uses: actions/checkout@v2
+ 
+    - name: Test with pytest
+      run: |
+        pytest -v cron/test/trend_test.py
