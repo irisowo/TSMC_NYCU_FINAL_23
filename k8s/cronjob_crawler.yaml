@@ -4,12 +4,13 @@ metadata:
   namespace: default
   name: cronjob-crawler
 spec:
-  schedule: "*/1 * * * *"
+  schedule: "*/3 * * * *"
   jobTemplate:
     spec:
       template:
         spec:
-          nodeName: gk3-project23-default-pool-c96d0be0-h79s
+          nodeSelector: 
+            app-type: crawler
           containers:
           - name: write-file
             image: irisowo/crawler:v1

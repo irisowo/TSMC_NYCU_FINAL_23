@@ -6,6 +6,8 @@ metadata:
     app: crawler
   namespace: default
 spec:
+  nodeSelector:
+    app-type: crawler
   containers:
   - name: crawler
     image: irisowo/cron:1day
