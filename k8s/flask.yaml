@@ -20,3 +20,19 @@ spec:
           ports:
             - containerPort: 9090
               protocol: TCP
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: flask-app-service
+spec:
+  type: LoadBalancer
+  ports:
+    - name: http
+      port: 9090
+      protocol: TCP
+      targetPort: 9090
+  selector:
+    app: flask-app
