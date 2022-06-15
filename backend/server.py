@@ -18,7 +18,7 @@ def getCsvDataAll():
     with open("data.csv", newline='') as csvfile:
         rows = csv.DictReader(csvfile)
         for row in rows:
-            data['time'].append(row['time'])
+            data['time'].append(row['date'])
             data['data']['tsmc'].append(row['tsmc'])
             data['data']['am'].append(row['am'])
             data['data']['asml'].append(row['asml'])

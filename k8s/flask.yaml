@@ -17,7 +17,7 @@ spec:
         app-type: crawler
       containers:
         - name: flask-app-container
-          image: ginnycosine/flask:v5
+          image: irisowo/flask:latest
           ports:
             - containerPort: 9090
               protocol: TCP
