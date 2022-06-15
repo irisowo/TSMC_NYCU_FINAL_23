@@ -16,7 +16,7 @@ spec:
         app-type: crawler
       containers:
         - name: react-app
-          image: irisowo/frontend:latest
+          image: ginnycosine/react:v1
           ports:
             - containerPort: 3000
 

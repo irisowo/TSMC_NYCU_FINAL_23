@@ -30,7 +30,7 @@ def getCsvData(company):
     with open("data.csv", newline='') as csvfile:
         rows = csv.DictReader(csvfile)
         for row in rows:
-            data['time'].append(row['time'])
+            data['time'].append(row['date'])
             data['data'][company].append(row[company])
     return data
 
