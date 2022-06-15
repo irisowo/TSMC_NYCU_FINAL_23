@@ -12,9 +12,11 @@ spec:
       labels:
         component: react-app
     spec:
+      nodeSelector:
+        app-type: crawler
       containers:
         - name: react-app
-          image: ginnycosine/react:v1
+          image: irisowo/frontend:latest
           ports:
             - containerPort: 3000
 

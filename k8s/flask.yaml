@@ -12,8 +12,9 @@ spec:
     metadata:
       labels:
         app: flask-app
-
     spec:
+      nodeSelector:
+        app-type: crawler
       containers:
         - name: flask-app-container
           image: ginnycosine/flask:v5
