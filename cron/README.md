@@ -7,6 +7,9 @@
 - What does the files under this directory do?
     - After applying crontab_pod.yaml, trend.py and crontab will be executed every day on crawler-pod
 - How to retrieve files
-    - ```kubectl cp crawler-pod:/sample_crawler/history/data.csv $PWD/data.csv```
+    - ```bash=
+      cd TSMC_NYCU_FINAL_23/k8s
+      ./cpDataToFlask.sh
+      ```
 -  Note
     - cronjob_crawler.yaml applies deployment, while crontab applies a pod on which PVC is mounted.

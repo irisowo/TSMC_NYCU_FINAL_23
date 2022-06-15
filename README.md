@@ -8,14 +8,14 @@
 ## Backend
 - Python flask
 - docker image
-    - `ginnycosine/flask:v5`
+    - `irisowo/flask:latest`
 - 讀取 crawler 爬到的爬到的聲量趨勢，回傳資料至前端
 
 ## Crawler
 - pytrend + cron
 - docker image
-    - `irisowo/cron:1day`
-- 利用 cron 排程每天爬 google trend
+    - `irisowo/cron:latest`
+- 利用 cron 或 conrjob 排程每天爬 google trend
 - 此 pod 掛載於 pvc
 
 ## Webpage
